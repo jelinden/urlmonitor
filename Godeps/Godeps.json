@@ -1,0 +1,79 @@
+{
+	"ImportPath": "github.com/jelinden/url-monitor",
+	"GoVersion": "go1.8",
+	"GodepVersion": "v79",
+	"Deps": [
+		{
+			"ImportPath": "github.com/PuerkitoBio/goquery",
+			"Comment": "v1.1.0-3-ged7d758",
+			"Rev": "ed7d758e9a34ba1f55e8084e0d731448b46921a8"
+		},
+		{
+			"ImportPath": "github.com/andybalholm/cascadia",
+			"Rev": "349dd0209470eabd9514242c688c403c0926d266"
+		},
+		{
+			"ImportPath": "github.com/headzoo/surf/agent",
+			"Comment": "v1.0.0-28-g362d364",
+			"Rev": "362d36475b4dc845ecdbb02e185a32f56a0c53d7"
+		},
+		{
+			"ImportPath": "github.com/headzoo/surf/browser",
+			"Comment": "v1.0.0-28-g362d364",
+			"Rev": "362d36475b4dc845ecdbb02e185a32f56a0c53d7"
+		},
+		{
+			"ImportPath": "github.com/headzoo/surf/errors",
+			"Comment": "v1.0.0-28-g362d364",
+			"Rev": "362d36475b4dc845ecdbb02e185a32f56a0c53d7"
+		},
+		{
+			"ImportPath": "github.com/headzoo/surf/jar",
+			"Comment": "v1.0.0-28-g362d364",
+			"Rev": "362d36475b4dc845ecdbb02e185a32f56a0c53d7"
+		},
+		{
+			"ImportPath": "github.com/headzoo/surf/util",
+			"Comment": "v1.0.0-28-g362d364",
+			"Rev": "362d36475b4dc845ecdbb02e185a32f56a0c53d7"
+		},
+		{
+			"ImportPath": "github.com/jelinden/blig/app/domain",
+			"Rev": "1a7ca22f57edaa73f9867b040b1c5fc184743c90"
+		},
+		{
+			"ImportPath": "github.com/jelinden/blig/app/util",
+			"Rev": "1a7ca22f57edaa73f9867b040b1c5fc184743c90"
+		},
+		{
+			"ImportPath": "github.com/julienschmidt/httprouter",
+			"Comment": "v1.1-29-g77366a4",
+			"Rev": "77366a47451a56bb3ba682481eed85b64fea14e8"
+		},
+		{
+			"ImportPath": "github.com/orcaman/concurrent-map",
+			"Rev": "2ae17bc4c860c83513ee50feb9746f3e50d7515d"
+		},
+		{
+			"ImportPath": "golang.org/x/net/html",
+			"Rev": "e4fa1c5465ad6111f206fc92186b8c83d64adbe1"
+		},
+		{
+			"ImportPath": "golang.org/x/net/html/atom",
+			"Rev": "e4fa1c5465ad6111f206fc92186b8c83d64adbe1"
+		},
+		{
+			"ImportPath": "golang.org/x/text/transform",
+			"Rev": "ccbd3f7822129ff389f8ca4858a9b9d4d910531c"
+		},
+		{
+			"ImportPath": "golang.org/x/text/unicode/norm",
+			"Rev": "ccbd3f7822129ff389f8ca4858a9b9d4d910531c"
+		},
+		{
+			"ImportPath": "gopkg.in/headzoo/surf.v1",
+			"Comment": "v1.0.0",
+			"Rev": "60198774ccce43e1d26c80e961497b7d262460b3"
+		}
+	]
+}
