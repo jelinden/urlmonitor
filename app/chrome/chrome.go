@@ -182,7 +182,7 @@ func allReady(resources cmap.ConcurrentMap, wg *sync.WaitGroup, count *int) bool
 	for key, resource := range resources.Items() {
 		r := resource.(Resource)
 		if r.Ready == false {
-			if time.Now().After(r.Sent.Add(2 * time.Second)) {
+			if time.Now().After(r.Sent.Add(3 * time.Second)) {
 				r.Ready = true
 				resources.Set(key, r)
 				log.Println(r.URL, "TIMED OUT")

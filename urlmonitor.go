@@ -16,12 +16,13 @@ const schedule = 60 * time.Second
 var domains = []domain.Domain{
 	domain.Domain{Name: "www_kl", Url: "https://www.kauppalehti.fi/", ScreenshotNode: ".main-navigation__container", WaitVisibleNode: ".main-navigation__container"},
 	domain.Domain{Name: "m_kl", Url: "https://m.kauppalehti.fi/", ScreenshotNode: ".navigation-main", WaitVisibleNode: ".navigation-main"},
-	domain.Domain{Name: "te", Url: "https://demo.talouselama.media/", ScreenshotNode: ".alma-footer", WaitVisibleNode: ".alma-footer"},
+	domain.Domain{Name: "av", Url: "https://www.affarsvarlden.se/", ScreenshotNode: "#nav", WaitVisibleNode: "#nav"},
 	domain.Domain{Name: "hs", Url: "http://www.hs.fi/", ScreenshotNode: ".main-footer", WaitVisibleNode: ".main-footer"},
 	domain.Domain{Name: "ts", Url: "http://www.is.fi/taloussanomat/", ScreenshotNode: ".main-footer", WaitVisibleNode: ".main-footer"},
 	domain.Domain{Name: "mtv", Url: "https://www.mtv.fi/", ScreenshotNode: "#main", WaitVisibleNode: "#main"},
 	domain.Domain{Name: "il", Url: "http://www.iltalehti.fi/", ScreenshotNode: "#ylanavi", WaitVisibleNode: "#ylanavi"},
 	domain.Domain{Name: "ap", Url: "https://www.arvopaperi.fi/", ScreenshotNode: ".header__nav", WaitVisibleNode: ".header__nav"},
+	domain.Domain{Name: "te", Url: "https://demo.talouselama.media/", ScreenshotNode: ".alma-footer", WaitVisibleNode: ".alma-footer"},
 	domain.Domain{Name: "jel", Url: "https://jelinden.fi/", ScreenshotNode: ".footer", WaitVisibleNode: ".footer"},
 }
 
@@ -47,7 +48,7 @@ func main() {
 func checkURLs() {
 	for _, d := range domains {
 		go fetch(d)
-		time.Sleep(7 * time.Second)
+		time.Sleep(6 * time.Second)
 	}
 }
 
