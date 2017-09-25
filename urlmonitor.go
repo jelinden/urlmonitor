@@ -6,8 +6,8 @@ import (
 	"time"
 
 	"github.com/jelinden/blig/app/util"
-	"github.com/jelinden/url-monitor/app/chrome"
-	"github.com/jelinden/url-monitor/app/domain"
+	"github.com/jelinden/urlmonitor/app/chrome"
+	"github.com/jelinden/urlmonitor/app/domain"
 	"github.com/julienschmidt/httprouter"
 )
 

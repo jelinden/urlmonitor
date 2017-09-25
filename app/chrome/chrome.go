@@ -13,7 +13,7 @@ import (
 	"github.com/gobs/args"
 	"github.com/gobs/pretty"
 	"github.com/gobs/simplejson"
-	"github.com/jelinden/url-monitor/app/domain"
+	"github.com/jelinden/urlmonitor/app/domain"
 	"github.com/orcaman/concurrent-map"
 	"github.com/raff/godet"
 )

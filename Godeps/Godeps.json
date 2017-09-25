@@ -1,5 +1,5 @@
 {
-	"ImportPath": "github.com/jelinden/url-monitor",
+	"ImportPath": "github.com/jelinden/urlmonitor",
 	"GoVersion": "go1.8",
 	"GodepVersion": "v79",
 	"Deps": [
