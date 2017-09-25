@@ -13,3 +13,7 @@ Ubuntu: `sudo apt-get install chromium-browser`
 ## run
 
 `go build && ./urlmonitor`
+
+## see
+
+[Example monitor site](http://monitor.jelinden.fi/)
