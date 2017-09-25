@@ -40,7 +40,7 @@ func main() {
 	router.Handler("GET", "/assets/*filepath", http.StripPrefix("/assets", util.GH(http.FileServer(fsStatic))))
 	router.Handler("GET", "/urls", util.GH(urlHandler()))
 	router.Handler("GET", "/json/*filepath", util.GH(jsonHandler()))
-	http.ListenAndServe(":8080", router)
+	http.ListenAndServe(":8800", router)
 	defer chrome.AtExit()
 }
 
