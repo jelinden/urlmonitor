@@ -19,9 +19,11 @@ import (
 )
 
 var chromeapp string
-var remote *godet.RemoteDebugger
 
 const port = "localhost:9222"
+
+var mutex = &sync.Mutex{}
+var remote *godet.RemoteDebugger
 
 type Resource struct {
 	RequestID string
@@ -93,6 +95,7 @@ func init() {
 }
 
 func Render(d domain.Domain, c chan domain.Times) {
+	mutex.Lock()
 	t := time.Now()
 	var indexTime time.Duration
 	remote.AllEvents(true)
@@ -103,8 +106,10 @@ func Render(d domain.Domain, c chan domain.Times) {
 	count++
 
 	remote.CallbackEvent("Page.loadEventFired", func(params godet.Params) {
-		wg.Done()
-		count--
+		if count > 0 {
+			wg.Done()
+			count--
+		}
 	})
 
 	resources := cmap.New()
@@ -162,7 +167,6 @@ func Render(d domain.Domain, c chan domain.Times) {
 			}
 		}
 	})
-
 	remote.Navigate(d.Url)
 	for i := 0; i < 100; i++ {
 		time.Sleep(300 * time.Millisecond)
@@ -176,6 +180,8 @@ func Render(d domain.Domain, c chan domain.Times) {
 	waitForNode(d.WaitVisibleNode)
 	remote.SaveScreenshot("assets/img/"+d.Name+".png", 0644, 0, true)
 	c <- domain.Times{IndexTime: indexTime, RenderTime: time.Now().Sub(t)}
+	time.Sleep(5 * time.Second)
+	mutex.Unlock()
 }
 
 func allReady(resources cmap.ConcurrentMap, wg *sync.WaitGroup, count *int) bool {
@@ -240,9 +246,4 @@ func documentNode(verbose bool) int {
 
 	doc := simplejson.AsJson(res)
 	return doc.GetPath("root", "nodeId").MustInt(-1)
-}
-
-func AtExit() {
-	remote.Close()
-	time.Sleep(5 * time.Second)
 }

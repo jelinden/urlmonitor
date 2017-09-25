@@ -42,7 +42,6 @@ func main() {
 	router.Handler("GET", "/urls", util.GH(urlHandler()))
 	router.Handler("GET", "/json/*filepath", util.GH(jsonHandler()))
 	http.ListenAndServe(":8800", router)
-	defer chrome.AtExit()
 }
 
 func checkURLs() {
@@ -58,7 +57,7 @@ func fetch(d domain.Domain) {
 	times := <-c
 	now := time.Now().Local().Format("02.01.2006 15:04:05")
 	cacheAdd(d.Url, d.Name, times.IndexTime, times.IndexTime, times.RenderTime, &now)
-	log.Println(d.Url, times.IndexTime, times.IndexTime, times.RenderTime)
+	log.Println(d.Url, d.Name, times.IndexTime, times.IndexTime, times.RenderTime)
 }
 
 func doEvery(d time.Duration, f func()) {
