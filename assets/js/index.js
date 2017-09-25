@@ -1,14 +1,15 @@
 var urls;
-
+var names;
 
 function fillEndpoints() {
     document.getElementById("view").innerHTML = '';
     for (var i in urls) {
         document.getElementById("view").innerHTML += "<div class=\"item\"><h2>" + 
             urls[i] + 
-            "</h2><canvas id=\"chart" + i + "\" width=\"300\" height=\"180\"></canvas></div>";
-        getValues(urls[i], "chart" + i, valuesCallback);
-        setInterval(getValues, 30000, urls[i], "chart" + i, valuesCallback);
+            "</h2><canvas id=\"" +names[i]+"\" width=\"300\" height=\"180\"></canvas>" +
+            "<div id=\"img" + i +"\"></div></div>";
+        getValues(urls[i], names[i], valuesCallback);
+        setInterval(getValues, 60000, urls[i], names[i], valuesCallback);
     }
 }
 
@@ -28,9 +29,9 @@ function draw(divID, valueArray) {
             },
             {
                 label: '',
-                data: valueArray.finalLoads,
-                backgroundColor: 'rgba(255, 99, 132, 0.1)',
-                borderColor: 'rgba(255,99,132,1)',
+                data: valueArray.renderLoads,
+                backgroundColor: 'rgba(255, 200, 132, 0.1)',
+                borderColor: 'rgba(255,200,132, 1)',
                 borderWidth: 1
             }]
         },
@@ -38,7 +39,10 @@ function draw(divID, valueArray) {
             scales: {
                 yAxes: [{
                     ticks: {
-                        beginAtZero:true
+                        beginAtZero:true,
+                        steps: 10,
+                        stepValue: 1,
+                        max: 8
                     }
                 }]
             },
@@ -53,6 +57,7 @@ function getURLs() {
     var xhr = new XMLHttpRequest();
     xhr.onload = function() {
         urls = JSON.parse(this.responseText).urls
+        names = JSON.parse(this.responseText).names
         fillEndpoints();
     };
 
@@ -65,8 +70,21 @@ function getValues(url, divID, callback) {
 }
 
 function valuesCallback(resp, divID) {
-    var times = JSON.parse(resp).times;
+    var parsed = JSON.parse(resp);
+    var times = parsed.times;
+    var div = document.getElementById(divID);
+    var nextSibling = div.nextSibling;
+    
+    nextSibling.innerHTML = "<div>"+parsed.times.latest+"</div>";
+    addimage(nextSibling, "/assets/img/" + parsed.times.service + ".png");
     draw(divID, times);
+}
+
+function addimage(sibbling, url) {
+    var img = new Image();
+    img.src = url+'?'+(new Date()).getMinutes();
+    img.width = "300";
+    sibbling.appendChild(img);
 }
 
 function request(url, callback, divID) {

@@ -13,9 +13,10 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 func urlHandler() http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		m, _ := json.Marshal(urls)
+		m, _ := json.Marshal(getUrls())
+		n, _ := json.Marshal(getNames())
 		w.Header().Add("Content-type", "application/json")
-		fmt.Fprintf(w, `{"urls": `+string(m)+`}`)
+		fmt.Fprintf(w, `{"urls": `+string(m)+`, "names": `+string(n)+`}`)
 	})
 }
 
@@ -29,4 +30,20 @@ func jsonHandler() http.Handler {
 		}
 		fmt.Fprintf(w, `{"times": `+cacheGet(url)+`}`)
 	})
+}
+
+func getUrls() []string {
+	var urls []string
+	for _, domain := range domains {
+		urls = append(urls, domain.Url)
+	}
+	return urls
+}
+
+func getNames() []string {
+	var names []string
+	for _, domain := range domains {
+		names = append(names, domain.Name)
+	}
+	return names
 }
