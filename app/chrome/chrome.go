@@ -172,7 +172,6 @@ func Render(d domain.Domain, c chan domain.Times) {
 
 	wg.Wait()
 	waitForNode(d.WaitVisibleNode)
-	log.Println(d.Url, "ALL DONE")
 	remote.SaveScreenshot("assets/img/"+d.Name+".png", 0644, 0, true)
 	c <- domain.Times{IndexTime: indexTime, RenderTime: time.Now().Sub(t)}
 }
@@ -185,7 +184,7 @@ func allReady(resources cmap.ConcurrentMap, wg *sync.WaitGroup, count *int) bool
 			return true
 		}
 		if r.Ready == false {
-			if time.Now().After(r.Sent.Add(3 * time.Second)) {
+			if time.Now().After(r.Sent.Add(2 * time.Second)) {
 				r.Ready = true
 				resources.Set(key, r)
 				log.Println(r.URL, "TIMED OUT")
