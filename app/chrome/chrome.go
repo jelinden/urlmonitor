@@ -181,6 +181,9 @@ func allReady(resources cmap.ConcurrentMap, wg *sync.WaitGroup, count *int) bool
 	allReady := true
 	for key, resource := range resources.Items() {
 		r := resource.(Resource)
+		if *count == 0 {
+			return true
+		}
 		if r.Ready == false {
 			if time.Now().After(r.Sent.Add(3 * time.Second)) {
 				r.Ready = true
