@@ -183,23 +183,14 @@ func allReady(resources cmap.ConcurrentMap, wg *sync.WaitGroup, count *int) bool
 		if *count == 0 {
 			return true
 		}
-		if r.Ready == false {
-			if time.Now().After(r.Sent.Add(2 * time.Second)) {
-				r.Ready = true
-				resources.Set(key, r)
-				log.Println(r.URL, "TIMED OUT")
-				wg.Done()
-				*count--
-			} else {
-				allReady = false
-				/*
-					if len(r.URL) > 70 {
-						fmt.Println(r.URL[:70], key, " not ready ")
-					} else {
-						fmt.Println(r.URL, key, " not ready ")
-					}
-				*/
-			}
+		if r.Ready == false && time.Now().After(r.Sent.Add(4*time.Second)) {
+			r.Ready = true
+			resources.Set(key, r)
+			log.Println(r.URL, "TIMED OUT")
+			wg.Done()
+			*count--
+		} else {
+			allReady = false
 		}
 	}
 	return allReady
