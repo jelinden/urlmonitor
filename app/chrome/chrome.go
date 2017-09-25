@@ -140,8 +140,10 @@ func Render(d domain.Domain, c chan domain.Times) {
 			if !r.Ready {
 				r.Ready = true
 				resources.Set(requestID, r)
-				wg.Done()
-				count--
+				if count > 0 {
+					wg.Done()
+					count--
+				}
 			}
 		}
 	})
