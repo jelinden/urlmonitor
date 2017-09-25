@@ -4,38 +4,53 @@
 	"GodepVersion": "v79",
 	"Deps": [
 		{
-			"ImportPath": "github.com/PuerkitoBio/goquery",
-			"Comment": "v1.1.0-3-ged7d758",
-			"Rev": "ed7d758e9a34ba1f55e8084e0d731448b46921a8"
+			"ImportPath": "github.com/gobs/args",
+			"Rev": "894f93f27f266d3763a9df50b455297a2ef7544a"
 		},
 		{
-			"ImportPath": "github.com/andybalholm/cascadia",
-			"Rev": "349dd0209470eabd9514242c688c403c0926d266"
+			"ImportPath": "github.com/gobs/httpclient",
+			"Rev": "0165cf15e9ae6dec77554d64a22bddbffb85760e"
 		},
 		{
-			"ImportPath": "github.com/headzoo/surf/agent",
-			"Comment": "v1.0.0-28-g362d364",
-			"Rev": "362d36475b4dc845ecdbb02e185a32f56a0c53d7"
+			"ImportPath": "github.com/gobs/pretty",
+			"Rev": "7a95ea67e11f8cdb7b3ddb6cefdb571e5067e1be"
 		},
 		{
-			"ImportPath": "github.com/headzoo/surf/browser",
-			"Comment": "v1.0.0-28-g362d364",
-			"Rev": "362d36475b4dc845ecdbb02e185a32f56a0c53d7"
+			"ImportPath": "github.com/gobs/simplejson",
+			"Rev": "42ff1e40f855e77066ef3f717e616fef0240ec51"
 		},
 		{
-			"ImportPath": "github.com/headzoo/surf/errors",
-			"Comment": "v1.0.0-28-g362d364",
-			"Rev": "362d36475b4dc845ecdbb02e185a32f56a0c53d7"
+			"ImportPath": "github.com/gorilla/websocket",
+			"Comment": "v1.2.0-6-ga69d9f6",
+			"Rev": "a69d9f6de432e2c6b296a947d8a5ee88f68522cf"
 		},
 		{
-			"ImportPath": "github.com/headzoo/surf/jar",
-			"Comment": "v1.0.0-28-g362d364",
-			"Rev": "362d36475b4dc845ecdbb02e185a32f56a0c53d7"
+			"ImportPath": "github.com/gxed/GoEndian",
+			"Rev": "0f5c6873267e5abf306ffcdfcfa4bf77517ef4a7"
 		},
 		{
-			"ImportPath": "github.com/headzoo/surf/util",
-			"Comment": "v1.0.0-28-g362d364",
-			"Rev": "362d36475b4dc845ecdbb02e185a32f56a0c53d7"
+			"ImportPath": "github.com/gxed/eventfd",
+			"Rev": "80a92cca79a8041496ccc9dd773fcb52a57ec6f9"
+		},
+		{
+			"ImportPath": "github.com/ipfs/go-log",
+			"Rev": "48d644b006ba26f1793bffc46396e981801078e3"
+		},
+		{
+			"ImportPath": "github.com/jbenet/go-reuseport",
+			"Rev": "c5d151d96d2a1f8cf5059a161dec4098de939225"
+		},
+		{
+			"ImportPath": "github.com/jbenet/go-reuseport/poll",
+			"Rev": "c5d151d96d2a1f8cf5059a161dec4098de939225"
+		},
+		{
+			"ImportPath": "github.com/jbenet/go-reuseport/singlepoll",
+			"Rev": "c5d151d96d2a1f8cf5059a161dec4098de939225"
+		},
+		{
+			"ImportPath": "github.com/jbenet/go-sockaddr/net",
+			"Rev": "2e7ea655c10e4d4d73365f0f073b81b39cb08ee1"
 		},
 		{
 			"ImportPath": "github.com/jelinden/blig/app/domain",
@@ -55,12 +70,12 @@
 			"Rev": "2ae17bc4c860c83513ee50feb9746f3e50d7515d"
 		},
 		{
-			"ImportPath": "golang.org/x/net/html",
-			"Rev": "e4fa1c5465ad6111f206fc92186b8c83d64adbe1"
+			"ImportPath": "github.com/raff/godet",
+			"Rev": "12e95d9f285ebd5f739804d487d0202b9d780b93"
 		},
 		{
-			"ImportPath": "golang.org/x/net/html/atom",
-			"Rev": "e4fa1c5465ad6111f206fc92186b8c83d64adbe1"
+			"ImportPath": "github.com/whyrusleeping/go-logging",
+			"Rev": "0457bb6b88fc1973573aaf6b5145d8d3ae972390"
 		},
 		{
 			"ImportPath": "golang.org/x/text/transform",
@@ -69,11 +84,6 @@
 		{
 			"ImportPath": "golang.org/x/text/unicode/norm",
 			"Rev": "ccbd3f7822129ff389f8ca4858a9b9d4d910531c"
-		},
-		{
-			"ImportPath": "gopkg.in/headzoo/surf.v1",
-			"Comment": "v1.0.0",
-			"Rev": "60198774ccce43e1d26c80e961497b7d262460b3"
 		}
 	]
 }
